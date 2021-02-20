@@ -253,6 +253,7 @@ StructDelete(session,"userID");
 ```
 
 ## profile.cfm
+Users who login with a user account and isAdmin set to 0 will see the profile page.
 ```markdown
 <cfscript>
 include 'header.cfm';
@@ -271,7 +272,7 @@ getUser = objUser.read(userID=session.userID);
 ```
 
 ## report.cfm
-This User Account Repot is only available to users with isAdmin set to 1 in the users table.
+This User Account Report is only available to users with isAdmin set to 1 in the users table.
 ```markdown
 <cfscript>
 include 'header.cfm';
