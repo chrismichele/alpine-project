@@ -1,6 +1,6 @@
 # alpine-project
 
-## Viewing Project
+## index.cfm
 You can view an overview of all files in the index.cfm file.
 
 ## create.sql
@@ -21,6 +21,7 @@ CREATE TABLE `users` (
  PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1
 ```
+
 ## user.cfc
 ```markdown
 <cfcomponent displayname="User Component" output="false">
@@ -172,8 +173,10 @@ if(isDefined("newUser") && newUser === true){
     <button class="btn btn-primary" name="submit">CREATE USER</button>
 </div>
 </form>
+```
 
-login.cfm
+## login.cfm
+```markdown
 <cfscript>
 include 'header.cfm';
 message = '';
@@ -236,8 +239,10 @@ if(isDefined("form.submit")){
     </div>
     </form>
 </cfif>
+```
 
-logout.cfm
+## logout.cfm
+```markdown
 <cfscript>
 StructDelete(session,"userID");
 </cfscript>
@@ -245,8 +250,10 @@ StructDelete(session,"userID");
 <div class="alert alert-info">
     Would you like to <a href="login.cfm">log back in</a>?
 </div>   
+```
 
-profile.cfm
+## profile.cfm
+```markdown
 <cfscript>
 include 'header.cfm';
 getUser = objUser.read(userID=session.userID);
@@ -261,9 +268,11 @@ getUser = objUser.read(userID=session.userID);
 </cfoutput>
 
 <cfinclude template="footer.cfm" />
+```
 
-report.cfm
+## report.cfm
 This User Account Repot is only available to users with isAdmin set to 1 in the users table.
+```markdown
 <cfscript>
 include 'header.cfm';
 if(structKeyExists(session,"isAdmin") && session.isAdmin === 1){
@@ -291,3 +300,4 @@ else{
   </tr>
 </cfoutput>
 </table>    
+```
